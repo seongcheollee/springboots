@@ -8,6 +8,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -25,7 +26,7 @@ public class GPSdata {
     private BigDecimal coordinates;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     // Getter와 Setter 메서드
 }

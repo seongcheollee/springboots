@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "routes")
 @Data
@@ -22,7 +24,7 @@ public class Route {
     private Post post;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     // Getter와 Setter 메서드
 }

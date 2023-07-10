@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
@@ -22,10 +23,10 @@ public class Post {
     private String content;
 
     @Column(name = "likes")
-    private Integer like;
+    private int like;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     // Getters and setters
 }

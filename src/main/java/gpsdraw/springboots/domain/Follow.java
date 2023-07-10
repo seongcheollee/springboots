@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "follows")
@@ -23,7 +24,7 @@ public class Follow {
     private User followedUser;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     // Getters and setters
 }
