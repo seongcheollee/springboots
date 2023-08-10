@@ -1,7 +1,6 @@
 package gpsdraw.springboots.controller;
 
 
-import gpsdraw.springboots.config.security.JwtTokenProvider;
 import gpsdraw.springboots.data.dto.PostDto;
 import gpsdraw.springboots.data.dto.PostResponseDto;
 import gpsdraw.springboots.data.entity.User;
