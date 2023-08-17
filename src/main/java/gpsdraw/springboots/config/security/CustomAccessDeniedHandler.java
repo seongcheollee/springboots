@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CustomAccessDeniedHandler.class);
-
+//
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response,
         AccessDeniedException exception) throws IOException {
