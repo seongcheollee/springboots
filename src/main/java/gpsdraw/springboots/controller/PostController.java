@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/post")
@@ -44,6 +45,28 @@ public class PostController {
         List<PostResponseDto> allPosts = postService.getAllPosts();
 
         LOGGER.info("[getAllPost] Response Time : {}ms", System.currentTimeMillis() - currentTime);
+        return ResponseEntity.status(HttpStatus.OK).body(allPosts);
+    }
+
+    @SecurityRequirement(name = "bearerAuth")
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<PostResponseDto>> getUserPost(@PathVariable String userId) {
+        long currentTime = System.currentTimeMillis();
+        LOGGER.info("[getUserPost] request Data");
+
+        List<PostResponseDto> allPosts = postService.getPostsByUser(userId);
+
+        LOGGER.info("[getUserPost] Response Time : {}ms", System.currentTimeMillis() - currentTime);
+        return ResponseEntity.status(HttpStatus.OK).body(allPosts);
+    }
+    @SecurityRequirement(name = "bearerAuth")
+    @GetMapping("/{userId}/{postId}")
+    public ResponseEntity<Optional<PostResponseDto>> getUserPost(@PathVariable String userId, @PathVariable Integer postId) {
+        long currentTime = System.currentTimeMillis();
+        LOGGER.info("[getUserPost] request Data");
+        Optional<PostResponseDto> allPosts = postService.getPostByUserAndPost(userId,postId);
+
+        LOGGER.info("[getUserPost] Response Time : {}ms", System.currentTimeMillis() - currentTime);
         return ResponseEntity.status(HttpStatus.OK).body(allPosts);
     }
 

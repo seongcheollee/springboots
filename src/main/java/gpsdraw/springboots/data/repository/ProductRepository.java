@@ -12,7 +12,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     /*
     아래 메소드는 책에서 소개하고 있는 Repository의 메소드 명명 규칙 예시입니다.
     */
-    List<Product> findByNameLike(String name);
+    List<Product> findBy(String name);
 
     List<Product> findByNameContaining(String name);
 

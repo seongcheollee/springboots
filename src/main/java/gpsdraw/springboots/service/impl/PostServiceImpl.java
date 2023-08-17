@@ -44,7 +44,28 @@ public class PostServiceImpl implements PostService {
                         post.getPost_content()
                 ))
                 .collect(Collectors.toList());
+    }
 
+    @Override
+    public List<PostResponseDto> getPostsByUser(String uid) {
+        List<Post> posts = postRepository.findByUserUid(uid);
+
+        return posts.stream()
+                .map(post -> new PostResponseDto(
+                        post.getUser().getUid(),
+                        post.getPost_content()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<PostResponseDto> getPostByUserAndPost(String userUid, Integer postId) {
+        Optional<Post> posts = postRepository.findByPost_idAndUser_Uid(postId,userUid);
+
+        return posts.map(post -> new PostResponseDto(
+                        post.getUser().getUid(),
+                        post.getPost_content()
+                ));
     }
 
     @Override

@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * 권한이 없는 예외가 발생했을 경우 핸들링하는 클래스
- * 예제 13.20
  */
+
+
 @Component
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 

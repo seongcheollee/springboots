@@ -14,9 +14,7 @@ import lombok.ToString;
 public class SignUpRequestDto {
 
     private String id;
-
     private String password;
-
     private String name;
 
 }
